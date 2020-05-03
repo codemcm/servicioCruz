@@ -6,6 +6,7 @@ CREATE TABLE PUBLIC.client(
     last_name VARCHAR(100),
     cell VARCHAR(10),
     observations VARCHAR(300),
+    email VARCHAR(50),
     created_date TIMESTAMP DEFAULT NOW(),
     created_by INTEGER DEFAULT 1,
     update_date TIMESTAMP DEFAULT NOW()
