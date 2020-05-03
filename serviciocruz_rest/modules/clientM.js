@@ -3,7 +3,6 @@
     created_date: 2020-05-02
 
 */
-import { CLIENT } from '../constants/functions_postgresql';
 const dbCon = require("../config/config");
 
 function clientAdd(req, res, next) {
@@ -27,8 +26,11 @@ function clientAdd(req, res, next) {
             })
         })
 }
-
+function respondiend(req, res, next) {
+    res.send('respond with a resource');
+}
 module.exports = {
-    clientAdd: clientAdd
+    add: clientAdd,
+    respondiend: respondiend
 }
 
