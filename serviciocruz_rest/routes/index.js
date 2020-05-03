@@ -6,8 +6,10 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-//STUDENT
-const client = require("../modules/clientM");
-router.post("v1/clients/"client.cli)
+//cliente
 
+
+const cliente = require("../modules/clientM");
+router.post("/v1/client/", cliente.add);
+router.get("/v1/client/", cliente.respondiend);
 module.exports = router;

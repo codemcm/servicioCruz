@@ -1,4 +1,5 @@
 --name database: mycompany
+DROP TABLE IF EXISTS PUBLIC.client;
 CREATE TABLE PUBLIC.client(
     client_id SERIAL NOT NULL,
     name VARCHAR(50),

@@ -6,9 +6,10 @@
 const dbCon = require("../config/config");
 
 function clientAdd(req, res, next) {
-    Console.log(CLIENT);
-    const query = "SELECT * FROM PUBLIC.client_add(${occupation_id}, ${first_name}, ${last_name}," +
-        "${surname}, ${email}, ${phone}, ${address}, ${birthday} )";
+    console.log(req.body);
+    //console.log(CLIENT);
+    const query = "SELECT * FROM PUBLIC.clientadd(${name}, ${last_name}," +
+        "${cell}, ${observations} )";
     dbCon.one(query, req.body)
         .then(function (data) {
             res.json({
