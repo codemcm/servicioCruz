@@ -1,7 +1,7 @@
-/*
-    @author Martin Cruz
-    created_date: 2020-05-02
-
+/* 
+    @author Martin Cruz 
+    created_date: 2020-05-02 
+ 
 */
 const dbCon = require("../config/config");
 
@@ -31,5 +31,4 @@ function respondiend(req, res, next) {
 module.exports = {
     add: clientAdd,
     respondiend: respondiend
-}
-
+} 
