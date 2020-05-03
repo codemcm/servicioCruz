@@ -6,6 +6,6 @@ CREATE TABLE PUBLIC.client(
     cell VARCHAR(10),
     observations VARCHAR(300),
     created_date TIMESTAMP DEFAULT NOW(),
-    created_by INTEGER,
+    created_by INTEGER DEFAULT 1,
     update_date TIMESTAMP DEFAULT NOW()
 );
