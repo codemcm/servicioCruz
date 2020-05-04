@@ -74,8 +74,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (
-        <NavigationContainer
-            initialRouteName="Home">
+        <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen name="Home" component={HomeStackScreen} />
                 <Tab.Screen name="Settings" component={SettingsStackScreen} />
