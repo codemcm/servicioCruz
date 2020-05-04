@@ -2,11 +2,14 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import HeaderApp from './HeaderApp';
 function HomeScreen({ navigation }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Home Screen</Text>
+            <MyTabs />
             <Button
                 title="Go to Details"
                 onPress={() => navigation.navigate('Details')}
@@ -14,7 +17,30 @@ function HomeScreen({ navigation }) {
         </View>
     );
 }
+const Tab = createBottomTabNavigator();
+function View1() {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Home!</Text>
+        </View>
+    );
+}
 
+function View2() {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Settings!</Text>
+        </View>
+    );
+}
+function MyTabs() {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Home" component={View1} />
+            <Tab.Screen name="Settings" component={View2} />
+        </Tab.Navigator>
+    );
+}
 function DetailsScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
