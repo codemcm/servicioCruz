@@ -22,9 +22,20 @@ class Home extends Component {
         cellular: ''
     }
     handleClick = () => {
-        clientAdd(this.state.name, this.state.last_name, this.state.cellular, this.state.description);
-        console.log("name:" + this.state.name);
-        alert('Button clicked!');
+        if (this.state.name == '') {
+            alert('debe llenar el nombre');
+        } else {
+            data = clientAdd(this.state.name, this.state.last_name, this.state.cellular, this.state.description);
+            console.log("name:" + this.state.name);
+            this.setState({
+                name: '',
+                last_name: '',
+                description: '',
+                cellular: ''
+            })
+            alert('Datos enviados:' + data);
+        }
+
 
     }
     render(props) {
@@ -46,6 +57,7 @@ class Home extends Component {
                             <Input
                                 onChangeText={(text) => this.setState({ name: text })}
                                 placeholder='nombre'
+                                required={true}
                             />
                             <Text >Apellidos</Text>
                             <Input
