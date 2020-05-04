@@ -12,7 +12,7 @@ import {
 import { Button } from 'react-native-elements';
 import { Input } from 'react-native-elements';
 import { Header } from 'react-native-elements';
-import { clientAdd } from '../../api_functions/client_add';
+import { clientAdd } from '../api_functions/client_add';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class Home extends Component {
     state = {
