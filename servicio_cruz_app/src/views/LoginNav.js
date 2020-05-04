@@ -3,7 +3,8 @@ import { View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import ClientAdd from './clientAdd';
+import ClientList from './clientList';
 function FeedScreen({ navigation }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -40,9 +41,9 @@ const Tab = createBottomTabNavigator();
 function HomeTabs() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Feed" component={FeedScreen} />
-            <Tab.Screen name="Profile" component={ProfileScreen} />
-            <Tab.Screen name="Account" component={AccountScreen} />
+            <Tab.Screen name="Cliente" component={ClientAdd} />
+            <Tab.Screen name="Ver" component={ClientList} />
+            <Tab.Screen name="Config" component={AccountScreen} />
         </Tab.Navigator>
     );
 }
