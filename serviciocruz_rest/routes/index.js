@@ -12,4 +12,5 @@ router.get('/', function (req, res, next) {
 const cliente = require("../modules/clientM");
 router.post("/v1/client/", cliente.add);
 router.get("/v1/client/", cliente.respondiend);
+router.get("/v1/client/all", cliente.getAll)
 module.exports = router;

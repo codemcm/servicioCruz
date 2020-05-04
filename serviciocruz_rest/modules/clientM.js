@@ -24,10 +24,23 @@ function clientAdd(req, res, next) {
             })
         })
 }
+
+function clientGetAll(req, res, next) {
+    const query = "SELECT * FROM PUBLIC.client";
+    dbCon.any(query, req)
+        .then(function (data) {
+            res.json({
+                status: "successfull",
+                data: data,
+                message: "Alumnos recuperados con exito"
+            })
+        })
+}
 function respondiend(req, res, next) {
     res.send('respond with a resource');
 }
 module.exports = {
     add: clientAdd,
+    getAll: clientGetAll,
     respondiend: respondiend
 } 

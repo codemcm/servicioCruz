@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ClientAdd from './clientAdd';
 import ClientList from './clientList';
+import SboLogin from './sboLogin';
 function DetailsScreen() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -17,6 +18,7 @@ function HomeScreen({ navigation }) {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Home screen</Text>
+
             <Button
                 title="Go to Details"
                 onPress={() => navigation.navigate('Details')}
@@ -77,7 +79,7 @@ export default function App() {
             <Tab.Navigator>
                 <Tab.Screen name="Home" component={HomeStackScreen} />
                 <Tab.Screen name="Settings" component={SettingsStackScreen} />
-                <Tab.Screen name="Listar" component={ClientList} />
+                <Tab.Screen name="Listar" component={SboLogin} />
             </Tab.Navigator>
         </NavigationContainer>
     );
