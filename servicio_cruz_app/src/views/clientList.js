@@ -1,6 +1,7 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
-
+import { SafeAreaView, View, FlatList, StyleSheet, Text, ScrollView } from 'react-native';
+import { Button } from 'react-native-elements';
+import { client_getAll } from '../api_functions/client_getAll';
 const DATA = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -23,16 +24,29 @@ function Item({ title }) {
         </View>
     );
 }
+function handleClick() {
+    var data = client_getAll();
+    client_getAll().then(function (response) {
+        alert('Datos enviados:' + JSON.stringify(response.data));
+
+    })
+}
+
 
 export default function App(props) {
     return (
-        <SafeAreaView >
+        <ScrollView >
+
             <FlatList
                 data={DATA}
                 renderItem={({ item }) => <Item title={item.title} />}
                 keyExtractor={item => item.id}
             />
-        </SafeAreaView>
+            <Button
+                title="listar clientes"
+                onPress={() => handleClick()}
+            />
+        </ScrollView>
     );
 }
 
