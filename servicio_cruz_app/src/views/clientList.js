@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, ScrollView } from 'react-native';
 import { Button } from 'react-native-elements';
 import { client_getAll } from '../api_functions/client_getAll';
+import CState from '../components/ComponentState';
 const DATA = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -35,18 +36,19 @@ function handleClick() {
 
 export default function App(props) {
     return (
-        <ScrollView >
+        <View >
 
             <FlatList
                 data={DATA}
                 renderItem={({ item }) => <Item title={item.title} />}
                 keyExtractor={item => item.id}
             />
+            <CState></CState>
             <Button
                 title="listar clientes"
                 onPress={() => handleClick()}
             />
-        </ScrollView>
+        </View>
     );
 }
 
