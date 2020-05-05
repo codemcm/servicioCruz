@@ -9,6 +9,7 @@ import IconAnt from 'react-native-vector-icons/AntDesign';
 
 import ClientAdd from './clientAdd';
 import ClientList from './clientList';
+import Ticket from './Ticket';
 function FeedScreen({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -61,7 +62,7 @@ function HomeTabs() {
       }}>
       <Tab.Screen name="Cliente" component={ClientAdd} />
       <Tab.Screen name="Ver" component={ClientList} />
-      <Tab.Screen name="Salir" component={AccountScreen} />
+      <Tab.Screen name="Salir" component={Ticket} />
     </Tab.Navigator>
   );
 }
