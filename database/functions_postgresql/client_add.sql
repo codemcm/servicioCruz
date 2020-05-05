@@ -22,7 +22,7 @@ $BODY$
 
 
 SELECT clientAdd('laura','duran','2371001703','XD');
-
+SELECT clientAdd('Martin','Cruz','2213494657','XD2');
 
 ALTER FUNCTION PUBLIC.clientAdd(VARCHAR(50), VARCHAR(100), VARCHAR(10), VARCHAR(300))
 OWNER TO postgres;
