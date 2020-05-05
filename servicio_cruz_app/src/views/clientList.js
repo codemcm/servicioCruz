@@ -12,10 +12,12 @@ import {Button} from 'react-native-elements';
 import {client_getAll} from '../api_functions/client_getAll';
 import CState from '../components/ComponentState';
 import {clientFetch} from '../api_functions/clientFetch';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function Item({objClient}) {
   return (
     <View style={styles.item}>
+      <Icon name="user" size={24} color="black" />
       <Text style={styles.title}>{objClient.name}</Text>
       <Text>{objClient.last_name}</Text>
     </View>
@@ -32,33 +34,31 @@ export default function App(props) {
     });
   }
   return (
-    <View>
+    <ScrollView>
       <View>
         <Button title="listar clientes" onPress={() => handleClick()} />
-      </View>
-      <View>
         <FlatList
           data={clients}
           renderItem={({item}) => <Item objClient={item} />}
           keyExtractor={item => item.name}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 5,
+    marginTop: 2,
+    marginBottom: 2,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
+    padding: 2,
+    marginVertical: 1,
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 10,
   },
 });

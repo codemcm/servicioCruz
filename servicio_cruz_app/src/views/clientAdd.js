@@ -28,20 +28,21 @@ class Home extends Component {
     if (this.state.name == '') {
       alert('debe llenar el nombre');
     } else {
-      data = clientAdd(
+      clientAdd(
         this.state.name,
         this.state.last_name,
         this.state.cellular,
         this.state.description,
-      );
-      console.log('name:' + this.state.name);
+      ).then(function(response) {
+        console.log('resultado: ' + response);
+      });
       this.setState({
         name: '',
         last_name: '',
         description: '',
         cellular: '',
       });
-      alert('Datos enviados:' + data);
+      alert('Cliente registrado');
     }
   };
   render(props) {
@@ -53,29 +54,31 @@ class Home extends Component {
             <View>
               <Text style={styles.marginText}>Nombre</Text>
               <Input
-                placeholder="Comment"
+                placeholder="Nombre"
                 leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                style={styles}
                 onChangeText={text => this.setState({name: text})}
               />
               <Text style={styles.marginText}>Apellidos</Text>
               <Input
-                placeholder="apellidos"
+                placeholder="Apellidos"
+                leftIcon={{type: 'font-awesome', name: 'pencil'}}
                 onChangeText={text => this.setState({last_name: text})}
               />
               <Text style={styles.marginText}>Celular</Text>
               <Input
-                placeholder="celular"
+                placeholder="Celular"
+                leftIcon={{type: 'font-awesome', name: 'pencil'}}
                 onChangeText={text => this.setState({cellular: text})}
               />
               <Text style={styles.marginText}>Notas</Text>
               <Input
-                placeholder="notas"
+                placeholder="Notas"
+                leftIcon={{type: 'font-awesome', name: 'pencil'}}
                 onChangeText={text => this.setState({description: text})}
               />
               <Button
                 onPress={this.handleClick}
-                buttonStyle={{margin: 10}}
+                buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
                 icon={<Icon name="send-o" size={15} color="white" />}
                 title="Registrar"
               />

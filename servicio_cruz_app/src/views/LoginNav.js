@@ -3,9 +3,7 @@ import {View, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 
@@ -35,7 +33,7 @@ function SettingsScreen({navigation}) {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
         title="Go to inicio"
-        onPress={() => navigation.navigate('Cliente')}
+        onPress={() => navigation.navigate('Servicio Cruz')}
       />
     </View>
   );
@@ -75,7 +73,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={SettingsScreen} />
-        <Stack.Screen name="Cliente" component={HomeTabs} />
+        <Stack.Screen name="Servicio Cruz" component={HomeTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
