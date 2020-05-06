@@ -6,7 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
-
+import Menu from './menu';
 import ClientAdd from './clientAdd';
 import ClientList from './clientList';
 import Ticket from './Ticket';
@@ -25,8 +25,12 @@ function ProfileScreen() {
   return <View />;
 }
 
-function AccountScreen() {
-  return <View />;
+function Boleto({navigation}) {
+  return (
+    <View>
+      <Text>Boleto...</Text>
+    </View>
+  );
 }
 
 function SettingsScreen({navigation}) {
@@ -53,6 +57,8 @@ function HomeTabs() {
             return <IconMC name="account-search" size={25} color="#45F38B" />;
           } else if (route.name === 'Salir') {
             return <IconAnt name="logout" size={25} color="#45F38B" />;
+          } else if (route.name === 'Menu') {
+            return <IconAnt name="menuunfold" size={25} color="#45F38B" />;
           }
         },
       })}
@@ -60,6 +66,7 @@ function HomeTabs() {
         activeTintColor: '#45F38B',
         inactiveTintColor: 'gray',
       }}>
+      <Tab.Screen name="Menu" component={Menu} />
       <Tab.Screen name="Cliente" component={ClientAdd} />
       <Tab.Screen name="Ver" component={ClientList} />
       <Tab.Screen name="Salir" component={Ticket} />
@@ -75,6 +82,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Login" component={SettingsScreen} />
         <Stack.Screen name="Servicio Cruz" component={HomeTabs} />
+        <Stack.Screen name="Boleto" component={Ticket} />
+        <Stack.Screen name="Cliente" component={ClientAdd} />
+        <Stack.Screen name="Ver" component={ClientList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
