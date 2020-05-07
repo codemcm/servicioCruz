@@ -40,6 +40,7 @@ export default function Menu({navigation}) {
               />
             }
             buttonStyle={styles.buttons2}
+            containerStyle={{color: 'black'}}
           />
           <Button
             icon={
