@@ -20,7 +20,7 @@ CREATE TABLE PUBLIC.client(
     cell VARCHAR(10),
     observations VARCHAR(300),
     created_date TIMESTAMP DEFAULT NOW(),
-    created_by INTEGER,
+    created_by INTEGER DEFAULT 1,
     update_date TIMESTAMP DEFAULT NOW(),
 	PRIMARY KEY (client_id)
 );
@@ -29,10 +29,13 @@ DROP TABLE IF EXISTS PUBLIC.raffle;
 
 CREATE TABLE PUBLIC.raffle (
   raffle_id SERIAL NOT NULL,
-  created_date TIMESTAMP DEFAULT NOW(),
-  start_data TIMESTAMP,--add to model
   description VARCHAR(300),
+  start_data TIMESTAMP,--add to model
   raffle_date TIMESTAMP NOT NULL,
+  created_date TIMESTAMP DEFAULT NOW(),
+  created_by INTEGER DEFAULT 1,
+  update_date TIMESTAMP DEFAULT NOW(),
+  update_by INTEGER DEFAULT 1,
   PRIMARY KEY (raffle_id));
 
 
@@ -59,6 +62,10 @@ CREATE TABLE PUBLIC.prize (
   prize_id SERIAL NOT NULL,
   Product VARCHAR(100) NULL,
   raffle_id INT NOT NULL,
+  created_date TIMESTAMP DEFAULT NOW(),
+  created_by INTEGER DEFAULT 1,
+  update_date TIMESTAMP DEFAULT NOW(),
+  update_by INTEGER DEFAULT 1,
   PRIMARY KEY (prize_id),
     FOREIGN KEY (raffle_id)
     REFERENCES PUBLIC.raffle (raffle_id)
