@@ -20,13 +20,10 @@ $BODY$
     LANGUAGE plpgsql VOLATILE
     COST 100;
 
-
-SELECT raffleAdd('rifa aceites','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffleAdd('rifa playeras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffleAdd('rifa gorras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffleAdd('rifa alineación','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-
 ALTER FUNCTION PUBLIC.raffleAdd(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER)
 OWNER TO postgres;
 
-
+--SELECT raffleAdd('rifa aceites','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+--SELECT raffleAdd('rifa playeras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+--SELECT raffleAdd('rifa gorras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+--SELECT raffleAdd('rifa alineación','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);

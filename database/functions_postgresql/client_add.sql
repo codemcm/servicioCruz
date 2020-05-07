@@ -21,12 +21,8 @@ $BODY$
     LANGUAGE plpgsql VOLATILE
     COST 100;
 
-
-SELECT clientAdd('laura','duran','2371001703','XD',1);
-SELECT clientAdd('Martin','Cruz','2213494657','XD2',1);
-
 ALTER FUNCTION PUBLIC.clientAdd(VARCHAR(50), VARCHAR(100), VARCHAR(10), VARCHAR(300),INTEGER)
 OWNER TO postgres;
-
-
+--SELECT clientAdd('laura','duran','2371001703','XD',1);
+--SELECT clientAdd('Martin','Cruz','2213494657','XD2',1);
 

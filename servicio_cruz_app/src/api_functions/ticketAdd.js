@@ -1,6 +1,6 @@
 import ConfigApi from '../config/config';
-async function clientAdd(name, last_name, cell, observations, user) {
-  const url = ConfigApi.url + 'client/';
+async function ticketAdd(raffle_id, client_id, user_id) {
+  const url = ConfigApi.url + 'ticket/';
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -9,11 +9,9 @@ async function clientAdd(name, last_name, cell, observations, user) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: name,
-        last_name: last_name,
-        cell: cell,
-        observations: observations,
-        user: user,
+        raffle_id: raffle_id,
+        client_id: client_id,
+        user_id: user_id,
       }),
     });
     const dataJson = await response.json();
@@ -29,4 +27,4 @@ async function clientAdd(name, last_name, cell, observations, user) {
   }
 }
 
-export {clientAdd};
+export {ticketAdd};

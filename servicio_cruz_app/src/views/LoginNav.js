@@ -7,9 +7,12 @@ import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 import Menu from './menu';
+import RifaAdd from './RifaAdd';
 import ClientAdd from './clientAdd';
 import ClientList from './clientList';
+import PrizeAdd from './PrizeAdd';
 import Ticket from './Ticket';
+import TicketAdd from './TicketAdd';
 function FeedScreen({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -81,10 +84,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={SettingsScreen} />
+        <Stack.Screen name="Premio" component={PrizeAdd} />
+        <Stack.Screen name="TicketAdd" component={TicketAdd} />
+        <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Servicio Cruz" component={HomeTabs} />
         <Stack.Screen name="Boleto" component={Ticket} />
         <Stack.Screen name="Cliente" component={ClientAdd} />
         <Stack.Screen name="Ver" component={ClientList} />
+        <Stack.Screen name="Rifa" component={RifaAdd} />
       </Stack.Navigator>
     </NavigationContainer>
   );

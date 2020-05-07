@@ -10,41 +10,31 @@ import {
 
 import {Button} from 'react-native-elements';
 import {Input} from 'react-native-elements';
-import {Header} from 'react-native-elements';
-import {clientAdd} from '../api_functions/client_add';
+import {ticketAdd} from '../api_functions/ticketAdd';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-class Home extends Component {
+class RifaAdd extends Component {
   constructor(props) {
     super(props);
   }
+
   state = {
-    name: '',
-    last_name: '',
-    description: '',
-    cellular: '',
-    user: 1,
+    raffle_id: '',
+    client_id: '',
+    user_id: 1,
   };
   handleClick = () => {
-    if (this.state.name == '') {
-      alert('debe llenar el nombre');
+    if (this.state.raffle_id == '') {
+      alert('debe llenar la rifa...');
     } else {
-      clientAdd(
-        this.state.name,
-        this.state.last_name,
-        this.state.cellular,
-        this.state.description,
-        this.state.user,
+      ticketAdd(
+        this.state.raffle_id,
+        this.state.client_id,
+        this.state.user_id,
       ).then(function(response) {
         console.log('resultado: ' + response);
       });
-      this.setState({
-        name: '',
-        last_name: '',
-        description: '',
-        cellular: '',
-      });
-      alert('Cliente registrado');
+      alert('Rifa registrada');
     }
   };
   render(props) {
@@ -54,30 +44,19 @@ class Home extends Component {
         <SafeAreaView>
           <ScrollView contentInsetAdjustmentBehavior="automatic">
             <View>
-              <Text style={styles.marginText}>Nombre</Text>
+              <Text style={styles.marginText}>Id de la rifa</Text>
               <Input
-                placeholder="Nombre"
+                placeholder="Rifa"
                 leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({name: text})}
+                onChangeText={text => this.setState({raffle_id: text})}
               />
-              <Text style={styles.marginText}>Apellidos</Text>
+              <Text style={styles.marginText}>Cliente</Text>
               <Input
-                placeholder="Apellidos"
+                placeholder="Cliente"
                 leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({last_name: text})}
+                onChangeText={text => this.setState({client_id: text})}
               />
-              <Text style={styles.marginText}>Celular</Text>
-              <Input
-                placeholder="Celular"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({cellular: text})}
-              />
-              <Text style={styles.marginText}>Notas</Text>
-              <Input
-                placeholder="Notas"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({description: text})}
-              />
+
               <Button
                 onPress={this.handleClick}
                 buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
@@ -92,7 +71,7 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default RifaAdd;
 const styles = StyleSheet.create({
   marginButon: {
     margin: 10,

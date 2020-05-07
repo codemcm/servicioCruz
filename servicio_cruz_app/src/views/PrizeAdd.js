@@ -10,41 +10,29 @@ import {
 
 import {Button} from 'react-native-elements';
 import {Input} from 'react-native-elements';
-import {Header} from 'react-native-elements';
-import {clientAdd} from '../api_functions/client_add';
+import {prizeAdd} from '../api_functions/PrizeAdd';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-class Home extends Component {
+class PrizeAdd extends Component {
   constructor(props) {
     super(props);
   }
+
   state = {
-    name: '',
-    last_name: '',
-    description: '',
-    cellular: '',
+    product: '',
+    raffleId: '',
     user: 1,
   };
   handleClick = () => {
-    if (this.state.name == '') {
+    if (this.state.product == '') {
       alert('debe llenar el nombre');
     } else {
-      clientAdd(
-        this.state.name,
-        this.state.last_name,
-        this.state.cellular,
-        this.state.description,
-        this.state.user,
-      ).then(function(response) {
-        console.log('resultado: ' + response);
-      });
-      this.setState({
-        name: '',
-        last_name: '',
-        description: '',
-        cellular: '',
-      });
-      alert('Cliente registrado');
+      prizeAdd(this.state.product, this.state.raffleId, this.state.user).then(
+        function(response) {
+          console.log('resultado: ' + response);
+        },
+      );
+      alert('Rifa registrada');
     }
   };
   render(props) {
@@ -54,30 +42,19 @@ class Home extends Component {
         <SafeAreaView>
           <ScrollView contentInsetAdjustmentBehavior="automatic">
             <View>
-              <Text style={styles.marginText}>Nombre</Text>
+              <Text style={styles.marginText}>Nombre del premio</Text>
               <Input
-                placeholder="Nombre"
+                placeholder="Nombre del premio"
                 leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({name: text})}
+                onChangeText={text => this.setState({product: text})}
               />
-              <Text style={styles.marginText}>Apellidos</Text>
+              <Text style={styles.marginText}>Rifa</Text>
               <Input
-                placeholder="Apellidos"
+                placeholder="Rifa"
                 leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({last_name: text})}
+                onChangeText={text => this.setState({raffleId: text})}
               />
-              <Text style={styles.marginText}>Celular</Text>
-              <Input
-                placeholder="Celular"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({cellular: text})}
-              />
-              <Text style={styles.marginText}>Notas</Text>
-              <Input
-                placeholder="Notas"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({description: text})}
-              />
+
               <Button
                 onPress={this.handleClick}
                 buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
@@ -92,7 +69,7 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default PrizeAdd;
 const styles = StyleSheet.create({
   marginButon: {
     margin: 10,

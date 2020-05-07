@@ -19,17 +19,14 @@ $BODY$
     LANGUAGE plpgsql VOLATILE
     COST 100;
 
+ALTER FUNCTION PUBLIC.prizeAdd(VARCHAR(100), INTEGER,INTEGER)
+OWNER TO postgres;
 
+/*
 SELECT prizeAdd('aceite',1,1);
 SELECT prizeAdd('playera',2,1);
 SELECT prizeAdd('cambio de aceite',3,1);
 SELECT prizeAdd('filtro',4,1);
-
-
-
-ALTER FUNCTION PUBLIC.prizeAdd(VARCHAR(100), INTEGER,INTEGER)
-OWNER TO postgres;
-
-
+*/
 
 

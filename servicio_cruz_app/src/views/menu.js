@@ -19,6 +19,7 @@ export default function Menu({navigation}) {
         <View style={styles.containerLeft}>
           <Button
             title="Cliente"
+            onPress={() => navigation.navigate('Cliente')}
             icon={
               <Icon
                 name="address-book"
@@ -31,6 +32,7 @@ export default function Menu({navigation}) {
           />
           <Button
             title="Rifa"
+            onPress={() => navigation.navigate('Rifa')}
             icon={
               <Icon
                 name="wpforms"
@@ -56,7 +58,8 @@ export default function Menu({navigation}) {
         </View>
         <View style={styles.containerRight}>
           <Button
-            title="Regalos"
+            title="Premios"
+            onPress={() => navigation.navigate('Premio')}
             icon={
               <Icon
                 name="wpforms"
@@ -69,6 +72,19 @@ export default function Menu({navigation}) {
           />
           <Button
             title="Sorteo"
+            icon={
+              <Icon
+                name="wpforms"
+                size={30}
+                color="white"
+                style={{marginRight: 10}}
+              />
+            }
+            buttonStyle={styles.buttons1}
+          />
+          <Button
+            title="Boleto add"
+            onPress={() => navigation.navigate('TicketAdd')}
             icon={
               <Icon
                 name="wpforms"
