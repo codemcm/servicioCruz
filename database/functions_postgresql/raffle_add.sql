@@ -1,5 +1,5 @@
-DROP FUNCTION IF EXISTS  PUBLIC.raffle_Add(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER);
-CREATE OR REPLACE FUNCTION PUBLIC.raffle_Add(
+DROP FUNCTION IF EXISTS  PUBLIC.raffleAdd(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER);
+CREATE OR REPLACE FUNCTION PUBLIC.raffleAdd(
     IN descriptionIN VARCHAR(300),
     IN start_dataIN TIMESTAMP,
     IN raffle_dateIN TIMESTAMP,
@@ -21,12 +21,12 @@ $BODY$
     COST 100;
 
 
-SELECT raffle_Add('rifa aceites','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffle_Add('rifa playeras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffle_Add('rifa gorras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
-SELECT raffle_Add('rifa alineación','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+SELECT raffleAdd('rifa aceites','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+SELECT raffleAdd('rifa playeras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+SELECT raffleAdd('rifa gorras','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
+SELECT raffleAdd('rifa alineación','2017-05-07 21:50:02'::timestamp,'2017-05-07 21:50:02'::timestamp,1);
 
-ALTER FUNCTION PUBLIC.raffle_Add(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER)
+ALTER FUNCTION PUBLIC.raffleAdd(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER)
 OWNER TO postgres;
 
 

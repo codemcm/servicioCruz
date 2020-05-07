@@ -1,18 +1,13 @@
-/* 
-    @author Martin Cruz 
-    created_date: 2020-05-02 
- 
-*/
 const dbCon = require("../config/config");
 
-function clientAdd(req, res, next) {
-    const query = "SELECT * FROM PUBLIC.clientAdd(${name}, ${last_name}, ${cell}, ${observations},${created_by})";
+function prizeAdd(req, res, next) {
+    const query = "SELECT * FROM PUBLIC.prizeAdd(${product},${raffle_id},${created_by})";
     dbCon.one(query, req.body)
         .then(function (data) {
             res.json({
                 status: "successfull",
                 data: data,
-                message: "Cliente registrado con exito"
+                message: "Premio registrado con exito"
             })
         })
         .catch(function (error) {
@@ -25,14 +20,14 @@ function clientAdd(req, res, next) {
         })
 }
 
-function clientGetAll(req, res, next) {
-    const query = "SELECT * FROM PUBLIC.client";
+function prizeGetAll(req, res, next) {
+    const query = "SELECT * FROM PUBLIC.prize";
     dbCon.any(query, req)
         .then(function (data) {
             res.json({
                 status: "successfull",
                 data: data,
-                message: "Clientes recuperados con exito"
+                message: "Registros de premios recuperados con exito"
             })
         })
 }
@@ -40,7 +35,7 @@ function respondiend(req, res, next) {
     res.send('respond with a resource');
 }
 module.exports = {
-    add: clientAdd,
-    getAll: clientGetAll,
+    add: prizeAdd,
+    getAll: prizeGetAll,
     respondiend: respondiend
 } 

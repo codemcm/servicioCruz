@@ -1,18 +1,13 @@
-/* 
-    @author Martin Cruz 
-    created_date: 2020-05-02 
- 
-*/
 const dbCon = require("../config/config");
 
-function clientAdd(req, res, next) {
-    const query = "SELECT * FROM PUBLIC.clientAdd(${name}, ${last_name}, ${cell}, ${observations},${created_by})";
+function ticketAdd(req, res, next) {
+    const query = "SELECT * FROM PUBLIC.ticketAdd(${raffle_id},${client_id})";
     dbCon.one(query, req.body)
         .then(function (data) {
             res.json({
                 status: "successfull",
                 data: data,
-                message: "Cliente registrado con exito"
+                message: "Boleto registrado con exito"
             })
         })
         .catch(function (error) {
@@ -25,14 +20,14 @@ function clientAdd(req, res, next) {
         })
 }
 
-function clientGetAll(req, res, next) {
-    const query = "SELECT * FROM PUBLIC.client";
+function ticketGetAll(req, res, next) {
+    const query = "SELECT * FROM PUBLIC.ticket";
     dbCon.any(query, req)
         .then(function (data) {
             res.json({
                 status: "successfull",
                 data: data,
-                message: "Clientes recuperados con exito"
+                message: "Registros de boletos recuperados con exito"
             })
         })
 }
@@ -40,7 +35,7 @@ function respondiend(req, res, next) {
     res.send('respond with a resource');
 }
 module.exports = {
-    add: clientAdd,
-    getAll: clientGetAll,
+    add: ticketAdd,
+    getAll: ticketGetAll,
     respondiend: respondiend
 } 
