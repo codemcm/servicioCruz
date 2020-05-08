@@ -25,7 +25,12 @@ export default function App({navigation}) {
     return (
       <View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Boleto')}
+          onPress={() =>
+            navigation.navigate('Boleto', {
+              id: objClient.client_id,
+              nombre: objClient.name,
+            })
+          }
           underlayColor="white">
           <View style={styles.item}>
             <Icon
@@ -49,7 +54,7 @@ export default function App({navigation}) {
     });
   }
   return (
-    <ScrollView style={{backgroundColor: 'white'}}>
+    <ScrollView>
       <View>
         <Button title="listar clientes" onPress={() => handleClick()} />
         <FlatList
