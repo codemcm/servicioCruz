@@ -70,7 +70,6 @@ function HomeTabs() {
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Menu" component={Menu} />
-      <Tab.Screen name="Cliente" component={ClientAdd} />
       <Tab.Screen name="Ver" component={ClientList} />
       <Tab.Screen name="Salir" component={Ticket} />
     </Tab.Navigator>
@@ -82,12 +81,24 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={SettingsScreen} />
         <Stack.Screen name="Premio" component={PrizeAdd} />
         <Stack.Screen name="TicketAdd" component={TicketAdd} />
-        <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="Servicio Cruz" component={HomeTabs} />
+        <Stack.Screen
+          name="Servicio Cruz"
+          component={HomeTabs}
+          options={{
+            title: 'My home',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
         <Stack.Screen name="Boleto" component={Ticket} />
         <Stack.Screen name="Cliente" component={ClientAdd} />
         <Stack.Screen name="Ver" component={ClientList} />
