@@ -41,7 +41,7 @@ function SettingsScreen({navigation}) {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
         title="Go to inicio"
-        onPress={() => navigation.navigate('Servicio Cruz')}
+        onPress={() => navigation.navigate('My app')}
       />
     </View>
   );
@@ -86,7 +86,7 @@ export default function App() {
         <Stack.Screen name="Premio" component={PrizeAdd} />
         <Stack.Screen name="TicketAdd" component={TicketAdd} />
         <Stack.Screen
-          name="Servicio Cruz"
+          name="My app"
           component={HomeTabs}
           options={{
             title: 'My home',
