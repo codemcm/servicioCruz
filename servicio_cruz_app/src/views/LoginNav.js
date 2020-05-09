@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Button} from 'react-native';
+import {View, Button, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -25,7 +25,11 @@ function FeedScreen({navigation}) {
 }
 
 function ProfileScreen() {
-  return <View />;
+  return (
+    <View>
+      <Text>config o salir, dificil decision...</Text>
+    </View>
+  );
 }
 
 function Boleto({navigation}) {
@@ -71,7 +75,7 @@ function HomeTabs() {
       }}>
       <Tab.Screen name="Menu" component={Menu} />
       <Tab.Screen name="Ver" component={ClientList} />
-      <Tab.Screen name="Salir" component={Ticket} />
+      <Tab.Screen name="Salir" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
@@ -89,14 +93,15 @@ export default function App() {
           name="My app"
           component={HomeTabs}
           options={{
-            title: 'My home',
+            title: 'SERVICIO CRUZ',
             headerStyle: {
-              backgroundColor: '#f4511e',
+              backgroundColor: '#91B79E',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            headerLeft: null,
           }}
         />
         <Stack.Screen name="Boleto" component={Ticket} />

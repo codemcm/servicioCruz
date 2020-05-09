@@ -84,14 +84,7 @@ export default function Menu({navigation}) {
           <Button
             title="Boleto add"
             onPress={() => navigation.navigate('TicketAdd')}
-            icon={
-              <Icon
-                name="wpforms"
-                size={30}
-                color="white"
-                style={{marginRight: 10}}
-              />
-            }
+            icon={<Icon name="wpforms" size={30} style={{marginRight: 10}} />}
             buttonStyle={styles.buttons1}
           />
         </View>
