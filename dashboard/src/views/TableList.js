@@ -54,43 +54,43 @@ class Tables extends React.Component {
                         <td>Martin</td>
                         <td>9393</td>
                         <td>Vaso NFL</td>
-                        <td className="text-center">$36,738</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
                         <td>Ricardo</td>
                         <td>84848</td>
                         <td>PLAYERA</td>
-                        <td className="text-center">$23,789</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
                         <td>Laura</td>
                         <td>222</td>
                         <td>Listro de aceite</td>
-                        <td className="text-center">$56,142</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
                         <td>Philip Chaney</td>
                         <td>Korea, South</td>
                         <td>Overland Park</td>
-                        <td className="text-center">$38,735</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
-                        <td>Doris Greene</td>
+                        <td>Fernando</td>
                         <td>Malawi</td>
                         <td>Feldkirchen in Kärnten</td>
-                        <td className="text-center">$63,542</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
-                        <td>Mason Porter</td>
+                        <td>Luis</td>
                         <td>Chile</td>
                         <td>Gloucester</td>
-                        <td className="text-center">$78,615</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                       <tr>
-                        <td>Jon Porter</td>
+                        <td>Teresa</td>
                         <td>Portugal</td>
                         <td>Gloucester</td>
-                        <td className="text-center">$98,615</td>
+                        <td className="text-center">2020/05/01</td>
                       </tr>
                     </tbody>
                   </Table>
@@ -100,8 +100,8 @@ class Tables extends React.Component {
             <Col md="12">
               <Card className="card-plain">
                 <CardHeader>
-                  <CardTitle tag="h4">Table on Plain Background</CardTitle>
-                  <p className="category">Here is a subtitle for this table</p>
+                  <CardTitle tag="h4">Universe Code</CardTitle>
+                  <p className="category">2020</p>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter" responsive>

@@ -13,7 +13,16 @@ import {client_getAll} from '../api_functions/client_getAll';
 import IconE from 'react-native-vector-icons/FontAwesome';
 
 function separator() {
-  return <View style={{height: 1, margin: 1, backgroundColor: 'blue'}} />;
+  return (
+    <View
+      style={{
+        height: 1,
+        marginLeft: 10,
+        marginRight: 30,
+        backgroundColor: '#DEE4EC',
+      }}
+    />
+  );
 }
 function _onLongPressButton(name) {
   alert('Seleccionaste:' + name);
@@ -34,13 +43,14 @@ export default function App({navigation}) {
           }
           underlayColor="white">
           <View style={styles.item}>
+            <Text style={styles.title}>C-{objClient.client_id}</Text>
             <IconE
               name="user"
               size={24}
-              color="black"
+              color="#296E7F"
               style={styles.imageClient}
             />
-            <Text style={styles.title}>{objClient.client_id}</Text>
+
             <Text style={styles.title}>{objClient.name}</Text>
             <Text style={styles.title}>{objClient.last_name}</Text>
           </View>
@@ -99,7 +109,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   title: {
-    fontSize: 14,
+    marginTop: 4,
+    marginBottom: 4,
+    fontSize: 18,
     marginRight: 4,
   },
   imageClient: {

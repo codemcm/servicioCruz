@@ -107,7 +107,17 @@ export default function App() {
           }}
         />
         <Stack.Screen name="Boleto" component={Ticket} />
-        <Stack.Screen name="Cliente" component={ClientAdd} />
+        <Stack.Screen
+          name="Cliente"
+          options={{
+            title: 'Cliente nuevo',
+            headerStyle: {
+              backgroundColor: '#1C416C',
+            },
+            headerTintColor: '#fff',
+          }}
+          component={ClientAdd}
+        />
         <Stack.Screen
           name="ClientList"
           options={{

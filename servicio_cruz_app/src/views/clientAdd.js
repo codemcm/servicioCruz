@@ -46,8 +46,10 @@ class Home extends Component {
       <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-          <ScrollView contentInsetAdjustmentBehavior="automatic">
-            <View>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.viewDetail}>
+            <View style={styles.viewDetail}>
               <Text style={styles.marginText}>Nombre</Text>
               <Input
                 placeholder="Nombre"
@@ -91,7 +93,13 @@ const styles = StyleSheet.create({
   marginButon: {
     margin: 10,
   },
+  viewDetail: {
+    backgroundColor: 'white',
+    padding: 3,
+  },
   marginText: {
+    marginTop: 5,
+    marginBottom: 4,
     marginLeft: 10,
   },
   container: {
