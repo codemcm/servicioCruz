@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
+import Login from './Login';
 import Menu from './menu';
 import RifaAdd from './RifaAdd';
 import ClientAdd from './clientAdd';
@@ -60,7 +61,7 @@ function HomeTabs() {
         tabBarIcon: ({focused, color, size}) => {
           if (route.name === 'Cliente') {
             return <Icon5 name="user-edit" size={20} color="#45F38B" />;
-          } else if (route.name === 'Ver') {
+          } else if (route.name === 'ClientList') {
             return <IconMC name="account-search" size={25} color="#45F38B" />;
           } else if (route.name === 'Salir') {
             return <IconAnt name="logout" size={25} color="#45F38B" />;
@@ -74,7 +75,6 @@ function HomeTabs() {
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Menu" component={Menu} />
-      <Tab.Screen name="Ver" component={ClientList} />
       <Tab.Screen name="Salir" component={ProfileScreen} />
     </Tab.Navigator>
   );
@@ -86,7 +86,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={SettingsScreen} />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Login"
+          component={Login}
+        />
         <Stack.Screen name="Premio" component={PrizeAdd} />
         <Stack.Screen name="TicketAdd" component={TicketAdd} />
         <Stack.Screen
@@ -106,7 +112,17 @@ export default function App() {
         />
         <Stack.Screen name="Boleto" component={Ticket} />
         <Stack.Screen name="Cliente" component={ClientAdd} />
-        <Stack.Screen name="Ver" component={ClientList} />
+        <Stack.Screen
+          name="ClientList"
+          options={{
+            title: 'Clientes',
+            headerStyle: {
+              backgroundColor: '#91B79E',
+            },
+            headerTintColor: '#fff',
+          }}
+          component={ClientList}
+        />
         <Stack.Screen name="Rifa" component={RifaAdd} />
       </Stack.Navigator>
     </NavigationContainer>

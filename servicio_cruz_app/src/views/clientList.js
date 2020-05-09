@@ -1,26 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
-  View,
   FlatList,
   StyleSheet,
   Text,
   ScrollView,
   TouchableOpacity,
+  View,
 } from 'react-native';
-import {useState} from 'react';
 import {Button} from 'react-native-elements';
 import {client_getAll} from '../api_functions/client_getAll';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import IconE from 'react-native-vector-icons/FontAwesome';
 
 function separator() {
-  return <View style={{height: 0, marginTop: 10}} />;
+  return <View style={{height: 1, margin: 1, backgroundColor: 'blue'}} />;
 }
 function _onLongPressButton(name) {
   alert('Seleccionaste:' + name);
 }
 export default function App({navigation}) {
   var [clients, setClients] = useState({cliente_1: 4, name: 'bu'});
+  const [activeb, setActive] = useState(true);
+
   function Item({objClient}) {
     return (
       <View>
@@ -33,7 +34,7 @@ export default function App({navigation}) {
           }
           underlayColor="white">
           <View style={styles.item}>
-            <Icon
+            <IconE
               name="user"
               size={24}
               color="black"
@@ -54,26 +55,41 @@ export default function App({navigation}) {
     });
   }
   return (
-    <ScrollView>
-      <View>
-        <Button title="listar clientes" onPress={() => handleClick()} />
-        <FlatList
-          style={styles.flatl}
-          data={clients}
-          renderItem={({item}) => <Item objClient={item} />}
-          keyExtractor={item => item.name}
-          ItemSeparatorComponent={separator}
-        />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Cliente')}
+        underlayColor="white">
+        <View style={styles.item}>
+          <IconE
+            name="user-plus"
+            size={24}
+            color="orange"
+            style={styles.imageClient}
+          />
+          <Text style={styles.title}>Agregar cliente nuevo</Text>
+        </View>
+      </TouchableOpacity>
+      <FlatList
+        style={styles.flatl}
+        data={clients}
+        renderItem={({item}) => <Item objClient={item} />}
+        keyExtractor={item => item.name}
+        ItemSeparatorComponent={separator}
+      />
+      <Button
+        buttonStyle={styles.containerButton}
+        title="listar clientes"
+        onPress={() => handleClick()}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: 1,
     marginBottom: 2,
+    backgroundColor: 'white',
   },
   item: {
     padding: 2,
@@ -89,6 +105,9 @@ const styles = StyleSheet.create({
   imageClient: {
     marginLeft: 5,
     marginRight: 15,
+  },
+  containerButton: {
+    margin: 5,
   },
   flatl: {marginTop: 0, backgroundColor: 'white'},
 });

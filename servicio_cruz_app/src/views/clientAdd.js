@@ -38,12 +38,6 @@ class Home extends Component {
       ).then(function(response) {
         console.log('resultado: ' + response);
       });
-      this.setState({
-        name: '',
-        last_name: '',
-        description: '',
-        cellular: '',
-      });
       alert('Cliente registrado');
     }
   };

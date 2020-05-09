@@ -17,8 +17,8 @@ export default function Menu({navigation}) {
       <View style={styles.container}>
         <View style={styles.containerLeft}>
           <Button
-            title="Cliente"
-            onPress={() => navigation.navigate('Cliente')}
+            title="Clientes"
+            onPress={() => navigation.navigate('ClientList')}
             icon={
               <Icon
                 name="address-book"
@@ -30,7 +30,7 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons1}
           />
           <Button
-            title="Rifa"
+            title="Sorteos"
             onPress={() => navigation.navigate('Rifa')}
             icon={
               <Icon
@@ -41,13 +41,13 @@ export default function Menu({navigation}) {
               />
             }
             buttonStyle={styles.buttons2}
-            containerStyle={{color: 'black'}}
           />
           <Button
+            title="Ganadores"
             icon={
               <Icon
                 name="diamond"
-                size={38}
+                size={15}
                 color="white"
                 style={{marginRight: 10}}
               />
@@ -57,7 +57,7 @@ export default function Menu({navigation}) {
         </View>
         <View style={styles.containerRight}>
           <Button
-            title="Premios"
+            title="Regalos"
             onPress={() => navigation.navigate('Premio')}
             icon={
               <Icon
@@ -70,11 +70,11 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons2}
           />
           <Button
-            title="Sorteo"
+            title="Boleto"
             icon={
               <Icon
                 name="wpforms"
-                size={30}
+                size={15}
                 color="white"
                 style={{marginRight: 10}}
               />
@@ -82,9 +82,9 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons1}
           />
           <Button
-            title="Boleto add"
+            title="Hacer rifa"
             onPress={() => navigation.navigate('TicketAdd')}
-            icon={<Icon name="wpforms" size={30} style={{marginRight: 10}} />}
+            icon={<Icon name="wpforms" size={15} style={{marginRight: 10}} />}
             buttonStyle={styles.buttons1}
           />
         </View>
@@ -113,13 +113,13 @@ const styles = StyleSheet.create({
   },
   buttons1: {
     marginTop: 2,
-    padding: 52,
+    padding: 35,
     backgroundColor: '#8A9075',
   },
   buttons2: {
     marginTop: 2,
     padding: 35,
-    marginBottom: 4,
+
     backgroundColor: '#8AF2A2',
   },
 });
