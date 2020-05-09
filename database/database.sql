@@ -3,10 +3,29 @@
 * Author: Laura Duran
 * Edited by: Martin Cruz
 * Created date: 2020-05-06
-* Edited date: 2020-05-07
+* Edited date: 2020-05-08
 */
 --DATABASE NAME: mycompany
 DROP TABLE IF EXISTS PUBLIC.client;
+DROP TABLE IF EXISTS PUBLIC.raffle;
+DROP TABLE IF EXISTS PUBLIC.ticket;
+DROP TABLE IF EXISTS PUBLIC.prize;
+DROP TABLE IF EXISTS PUBLIC.use;
+DROP TABLE IF EXISTS PUBLIC.winner;
+
+CREATE TABLE PUBLIC.user(
+    user_id SERIAL NOT NULL,
+    username VARCHAR(100),
+    password VARCHAR(100),
+    created_by INTEGER DEFAULT 1,
+    created_date TIMESTAMP DEFAULT NOW(),
+    updated_date TIMESTAMP DEFAULT NOW(),
+    updated_by INTEGER DEFAULT 1,
+    active BOOLEAN DEFAULT TRUE,
+	  PRIMARY KEY (user_id)
+);
+
+
 CREATE TABLE PUBLIC.client(
     client_id SERIAL NOT NULL,
     name VARCHAR(50),
@@ -18,41 +37,46 @@ CREATE TABLE PUBLIC.client(
     created_by INTEGER DEFAULT 1,
     updated_date TIMESTAMP DEFAULT NOW(),
     updated_by INTEGER DEFAULT 1,
+    active BOOLEAN DEFAULT TRUE,
 	  PRIMARY KEY (client_id)
 );
 
-DROP TABLE IF EXISTS PUBLIC.raffle;
+
+
 CREATE TABLE PUBLIC.raffle (
-  raffle_id SERIAL NOT NULL,
-  description VARCHAR(300),
-  start_data TIMESTAMP,--add to model
-  raffle_date TIMESTAMP NOT NULL,
-  created_date TIMESTAMP DEFAULT NOW(),
-  created_by INTEGER DEFAULT 1,
-  updated_date TIMESTAMP DEFAULT NOW(),
-  updated_by INTEGER DEFAULT 1,
-  PRIMARY KEY (raffle_id)
+    raffle_id SERIAL NOT NULL,
+    description VARCHAR(300),
+    start_data TIMESTAMP,--add to model
+    raffle_date TIMESTAMP NOT NULL,
+    created_date TIMESTAMP DEFAULT NOW(),
+    created_by INTEGER DEFAULT 1,
+    updated_date TIMESTAMP DEFAULT NOW(),
+    updated_by INTEGER DEFAULT 1,
+    active BOOLEAN DEFAULT TRUE,
+    PRIMARY KEY (raffle_id)
 );
 
-DROP TABLE IF EXISTS PUBLIC.ticket;
+
 CREATE TABLE PUBLIC.ticket (
   ticket_id SERIAL NOT NULL,
   raffle_id INT NOT NULL,
   client_id INT NOT NULL,
   created_date TIMESTAMP DEFAULT NOW(),
   created_by INTEGER DEFAULT 1,
+  active BOOLEAN DEFAULT TRUE,
   PRIMARY KEY (ticket_id),
-  FOREIGN KEY (raffle_id)
-    REFERENCES PUBLIC.raffle (raffle_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  FOREIGN KEY (client_id)
-    REFERENCES PUBLIC.client (client_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    FOREIGN KEY (raffle_id)
+      REFERENCES PUBLIC.raffle (raffle_id)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+    FOREIGN KEY (client_id)
+      REFERENCES PUBLIC.client (client_id)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
 
 
-DROP TABLE IF EXISTS PUBLIC.prize;
+
 CREATE TABLE PUBLIC.prize (
   prize_id SERIAL NOT NULL,
   product VARCHAR(100) NULL,
@@ -61,8 +85,28 @@ CREATE TABLE PUBLIC.prize (
   created_by INTEGER DEFAULT 1,
   updated_date TIMESTAMP DEFAULT NOW(),
   updated_by INTEGER DEFAULT 1,
+  active BOOLEAN DEFAULT TRUE,
   PRIMARY KEY (prize_id),
-  FOREIGN KEY (raffle_id)
-    REFERENCES PUBLIC.raffle (raffle_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+     FOREIGN KEY (raffle_id)
+      REFERENCES PUBLIC.raffle (raffle_id)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
+
+CREATE TABLE PUBLIC.winner(
+    winner_id SERIAL NOT NULL,
+    ticked_id INT NOT NULL,
+    prize_id INT NOT NULL,
+    created_date TIMESTAMP DEFAULT NOW(),
+    created_by INTEGER DEFAULT 1,
+    active BOOLEAN DEFAULT TRUE,
+	  PRIMARY KEY (winner_id),
+      FOREIGN KEY (prize_id)
+        REFERENCES PUBLIC.prize (prize_id)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+      FOREIGN KEY (ticked_id)
+        REFERENCES PUBLIC.ticked (ticked_id)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+);
