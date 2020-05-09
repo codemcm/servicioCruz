@@ -12,7 +12,7 @@ CREATE TABLE PUBLIC.client(
     name VARCHAR(50),
     last_name VARCHAR(100),
     cell VARCHAR(10) UNIQUE,
-     email VARCHAR(50),
+    email VARCHAR(50),
     observations VARCHAR(300),
     created_date TIMESTAMP DEFAULT NOW(),
     created_by INTEGER DEFAULT 1,
