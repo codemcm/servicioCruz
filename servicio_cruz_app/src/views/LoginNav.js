@@ -59,19 +59,15 @@ function HomeTabs() {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
-          if (route.name === 'Cliente') {
-            return <Icon5 name="user-edit" size={20} color="#45F38B" />;
-          } else if (route.name === 'ClientList') {
-            return <IconMC name="account-search" size={25} color="#45F38B" />;
-          } else if (route.name === 'Salir') {
-            return <IconAnt name="logout" size={25} color="#45F38B" />;
+          if (route.name === 'Salir') {
+            return <IconAnt name="logout" size={24} color="#1C416C" />;
           } else if (route.name === 'Menu') {
-            return <IconAnt name="menuunfold" size={25} color="#45F38B" />;
+            return <Icon5 name="list" size={25} color="#1C416C" />;
           }
         },
       })}
       tabBarOptions={{
-        activeTintColor: '#45F38B',
+        activeTintColor: '#1C416C',
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Menu" component={Menu} />
@@ -99,9 +95,9 @@ export default function App() {
           name="My app"
           component={HomeTabs}
           options={{
-            title: 'SERVICIO CRUZ',
+            title: 'Clover Light',
             headerStyle: {
-              backgroundColor: '#91B79E',
+              backgroundColor: '#1C416C',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -117,7 +113,7 @@ export default function App() {
           options={{
             title: 'Clientes',
             headerStyle: {
-              backgroundColor: '#91B79E',
+              backgroundColor: '#1C416C',
             },
             headerTintColor: '#fff',
           }}

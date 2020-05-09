@@ -10,6 +10,10 @@ import {
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconMI from 'react-native-vector-icons/MaterialIcons';
+
+import IconAnt from 'react-native-vector-icons/AntDesign';
 
 export default function Menu({navigation}) {
   return (
@@ -33,8 +37,8 @@ export default function Menu({navigation}) {
             title="Sorteos"
             onPress={() => navigation.navigate('Rifa')}
             icon={
-              <Icon
-                name="wpforms"
+              <IconMI
+                name="event-available"
                 size={15}
                 color="white"
                 style={{marginRight: 10}}
@@ -43,10 +47,10 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons2}
           />
           <Button
-            title="Ganadores"
+            title="Ganador"
             icon={
               <Icon
-                name="diamond"
+                name="heart-o"
                 size={15}
                 color="white"
                 style={{marginRight: 10}}
@@ -60,8 +64,8 @@ export default function Menu({navigation}) {
             title="Regalos"
             onPress={() => navigation.navigate('Premio')}
             icon={
-              <Icon
-                name="wpforms"
+              <IconAnt
+                name="gift"
                 size={15}
                 color="white"
                 style={{marginRight: 10}}
@@ -73,7 +77,7 @@ export default function Menu({navigation}) {
             title="Boleto"
             icon={
               <Icon
-                name="wpforms"
+                name="ticket"
                 size={15}
                 color="white"
                 style={{marginRight: 10}}
@@ -82,10 +86,17 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons1}
           />
           <Button
-            title="Hacer rifa"
+            title="Suerte"
             onPress={() => navigation.navigate('TicketAdd')}
-            icon={<Icon name="wpforms" size={15} style={{marginRight: 10}} />}
-            buttonStyle={styles.buttons1}
+            icon={
+              <Icon
+                name="magnet"
+                size={15}
+                style={{marginRight: 10}}
+                color="white"
+              />
+            }
+            buttonStyle={styles.buttons2}
           />
         </View>
       </View>
@@ -102,24 +113,26 @@ const styles = StyleSheet.create({
   },
   containerLeft: {
     flex: 1,
-    marginLeft: 2,
+    marginLeft: 10,
     marginTop: 10,
   },
   containerRight: {
     flex: 1,
-    marginLeft: 2,
-    marginRight: 2,
+    marginLeft: 10,
+    marginRight: 10,
     marginTop: 10,
   },
   buttons1: {
     marginTop: 2,
     padding: 35,
-    backgroundColor: '#8A9075',
+    marginBottom: 10,
+    backgroundColor: '#3D618A',
   },
   buttons2: {
     marginTop: 2,
+    marginBottom: 10,
     padding: 35,
 
-    backgroundColor: '#8AF2A2',
+    backgroundColor: '#4F7CAF',
   },
 });
