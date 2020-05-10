@@ -63,6 +63,8 @@ function HomeTabs() {
             return <IconAnt name="logout" size={24} color="#1C416C" />;
           } else if (route.name === 'Menu') {
             return <Icon5 name="list" size={25} color="#1C416C" />;
+          } else if (route.name === 'Configuration') {
+            return <IconAnt name="setting" size={25} color="#1C416C" />;
           }
         },
       })}
@@ -71,6 +73,7 @@ function HomeTabs() {
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Menu" component={Menu} />
+      <Tab.Screen name="Configuration" component={ProfileScreen} />
       <Tab.Screen name="Salir" component={ProfileScreen} />
     </Tab.Navigator>
   );

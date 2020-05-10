@@ -86,7 +86,7 @@ export default function Menu({navigation}) {
             buttonStyle={styles.buttons1}
           />
           <Button
-            title="Suerte"
+            title="suert tick ad"
             onPress={() => navigation.navigate('TicketAdd')}
             icon={
               <Icon

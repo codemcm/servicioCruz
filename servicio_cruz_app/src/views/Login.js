@@ -9,13 +9,14 @@ import {Input} from 'react-native-elements';
 import {Text} from 'react-native-elements';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Button} from 'react-native-elements';
+import {CheckBox} from 'react-native-elements';
 export default function Login({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.containerView}>
-        <Text h4 style={{color: 'orange'}}>
+        <Text h4 style={{color: '#3D618A', marginLeft: 70}}>
           {' '}
-          Servicio cruz
+          Clover Light
         </Text>
         <View style={{margin: 30}} />
         <Input
@@ -47,8 +48,15 @@ export default function Login({navigation}) {
           }
           title="Inicio de sesión"
         />
-        <Text style={{marginLeft: 10, marginTop: 130, color: 'orange'}}>
-          Development by Universe Code
+        <CheckBox
+          center
+          title="Mantener sesión abierta"
+          checkedIcon="dot-circle-o"
+          uncheckedIcon="circle-o"
+          checked={true}
+        />
+        <Text style={{marginLeft: 10, marginTop: 70, color: '#517fa4'}}>
+          Universe Code 2020
         </Text>
       </View>
     </ScrollView>
@@ -69,6 +77,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginLeft: 5,
     marginRight: 5,
-    backgroundColor: 'orange',
+    backgroundColor: '#3D618A',
   },
 });
