@@ -1,3 +1,12 @@
+/*
+* Company: Universe Code
+* Author: Laura Duran
+* Edited by: Martin Cruz
+* Created date: 2020-05-09
+* Edited date: 2020-05-09
+*/
+--DATABASE NAME: mycompany
+
 DROP FUNCTION IF EXISTS  PUBLIC.raffleAdd(VARCHAR(300),TIMESTAMP,TIMESTAMP,INTEGER);
 CREATE OR REPLACE FUNCTION PUBLIC.raffleAdd(
     IN descriptionIN VARCHAR(300),
