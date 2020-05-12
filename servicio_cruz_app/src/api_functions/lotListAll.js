@@ -1,6 +1,6 @@
 import ConfigApi from '../config/config';
 const axios = require('axios');
-function raffleGetAll() {
+function lotListAll() {
   return axios({
     method: 'GET',
     url: ConfigApi.url + 'raffle/all/',
@@ -11,4 +11,4 @@ function raffleGetAll() {
   });
 }
 
-export {raffleGetAll};
+export {lotListAll};

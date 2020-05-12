@@ -1,6 +1,6 @@
 import ConfigApi from '../config/config';
-async function raffleAdd(description, start_data, raffle_date, created_by) {
-  const url = ConfigApi.url + 'raffle/';
+async function prizeNew(product, raffle_id, user) {
+  const url = ConfigApi.url + 'prize/';
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -9,10 +9,9 @@ async function raffleAdd(description, start_data, raffle_date, created_by) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        description: description,
-        start_data: start_data,
-        raffle_date: raffle_date,
-        created_by: created_by,
+        product: product,
+        raffle_id: raffle_id,
+        created_by: user,
       }),
     });
     const dataJson = await response.json();
@@ -28,4 +27,4 @@ async function raffleAdd(description, start_data, raffle_date, created_by) {
   }
 }
 
-export {raffleAdd};
+export {prizeNew};

@@ -4,52 +4,22 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
-import Login from './Login';
-import Menu from './menu';
 
-import RifaAdd from './RifaAdd';
-import RaffleList from './raffleList';
-import ClientAdd from './clientAdd';
-import ClientList from './clientList';
-import PrizeAdd from './PrizeAdd';
-import Ticket from './Ticket';
+import Login from './login/Login';
+import Menu from './menu/Menu';
+import ClientAdd from './client/clientAdd';
+import ClientList from './client/clientList';
+import DrawAdd from './draw/DrawAdd';
+import DrawList from './draw/DrawList';
+import Ticket from './ticket/TicketAdd';
 import TicketAdd from './TicketAdd';
-function FeedScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button
-        title="Go to Login"
-        onPress={() => navigation.navigate('Login')}
-      />
-    </View>
-  );
-}
+import PrizeAdd from './prize/PrizeAdd';
 
-function ProfileScreen() {
+function DummyView() {
   return (
     <View>
       <Text>config o salir, dificil decision...</Text>
-    </View>
-  );
-}
-
-function Boleto({navigation}) {
-  return (
-    <View>
-      <Text>Boleto...</Text>
-    </View>
-  );
-}
-
-function SettingsScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button
-        title="Go to inicio"
-        onPress={() => navigation.navigate('My app')}
-      />
     </View>
   );
 }
@@ -75,15 +45,15 @@ function HomeTabs() {
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Menu" component={Menu} />
-      <Tab.Screen name="Configuration" component={ProfileScreen} />
-      <Tab.Screen name="Salir" component={ProfileScreen} />
+      <Tab.Screen name="Configuration" component={DummyView} />
+      <Tab.Screen name="Salir" component={DummyView} />
     </Tab.Navigator>
   );
 }
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function NavigationApp() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
@@ -101,23 +71,7 @@ export default function App() {
             title: 'Nuevo premio',
           }}
         />
-        <Stack.Screen name="TicketAdd" component={TicketAdd} />
-        <Stack.Screen
-          name="My app"
-          component={HomeTabs}
-          options={{
-            title: 'Clover Light',
-            headerStyle: {
-              backgroundColor: '#1C416C',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            headerLeft: null,
-          }}
-        />
-        <Stack.Screen name="Boleto" component={Ticket} />
+
         <Stack.Screen
           name="Cliente"
           options={{
@@ -140,8 +94,26 @@ export default function App() {
           }}
           component={ClientList}
         />
-        <Stack.Screen name="RifaAdd" component={RifaAdd} />
-        <Stack.Screen name="RifaList" component={RaffleList} />
+        <Stack.Screen name="DrawAdd" component={DrawAdd} />
+        <Stack.Screen name="DrawList" component={DrawList} />
+
+        <Stack.Screen name="TicketAdd" component={TicketAdd} />
+        <Stack.Screen
+          name="My app"
+          component={HomeTabs}
+          options={{
+            title: 'Clover Light',
+            headerStyle: {
+              backgroundColor: '#1C416C',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen name="Boleto" component={Ticket} />
       </Stack.Navigator>
     </NavigationContainer>
   );

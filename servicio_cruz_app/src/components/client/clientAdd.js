@@ -11,7 +11,7 @@ import {
 import {Button} from 'react-native-elements';
 import {Input} from 'react-native-elements';
 import {Header} from 'react-native-elements';
-import {clientAdd} from '../api_functions/client_add';
+import {clientNew} from '../../api_functions/clientNew';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class Home extends Component {
@@ -29,7 +29,7 @@ class Home extends Component {
     if (this.state.name == '') {
       alert('debe llenar el nombre');
     } else {
-      clientAdd(
+      clientNew(
         this.state.name,
         this.state.last_name,
         this.state.cellular,

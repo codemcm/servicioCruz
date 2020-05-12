@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import {Button} from 'react-native-elements';
-import {raffleGetAll} from '../api_functions/raffleGetAll';
+import {lotListAll} from '../../api_functions/lotListAll';
 import IconE from 'react-native-vector-icons/FontAwesome';
 
 function separator() {
@@ -58,7 +58,7 @@ export default function App({navigation}) {
     );
   }
   function handleClick() {
-    raffleGetAll().then(function(data) {
+    lotListAll().then(function(data) {
       console.log(data.data);
       setClients(data.data);
     });

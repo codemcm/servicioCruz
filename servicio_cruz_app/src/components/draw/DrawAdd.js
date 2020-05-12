@@ -10,7 +10,7 @@ import {
 
 import {Button} from 'react-native-elements';
 import {Input} from 'react-native-elements';
-import {raffleAdd} from '../api_functions/raffleAdd';
+import {lotNew} from '../../api_functions/lotNew';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class RifaAdd extends Component {
@@ -28,7 +28,7 @@ class RifaAdd extends Component {
     if (this.state.name == '') {
       alert('debe llenar el nombre');
     } else {
-      raffleAdd(
+      lotNew(
         this.state.description,
         this.state.startDate,
         this.state.raffleDate,

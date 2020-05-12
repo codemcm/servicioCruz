@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import {Button} from 'react-native-elements';
-import {client_getAll} from '../api_functions/client_getAll';
+import {clienListAll} from '../../api_functions/clienListAll';
 import IconE from 'react-native-vector-icons/FontAwesome';
 
 function separator() {
@@ -59,7 +59,7 @@ export default function App({navigation}) {
     );
   }
   function handleClick() {
-    client_getAll().then(function(data) {
+    clienListAll().then(function(data) {
       console.log(data.data);
       setClients(data.data);
     });

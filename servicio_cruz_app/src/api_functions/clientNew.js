@@ -1,6 +1,6 @@
 import ConfigApi from '../config/config';
-async function prizeAdd(product, raffle_id, user) {
-  const url = ConfigApi.url + 'prize/';
+async function clientNew(name, last_name, cell, observations, user) {
+  const url = ConfigApi.url + 'client/';
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -9,9 +9,11 @@ async function prizeAdd(product, raffle_id, user) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        product: product,
-        raffle_id: raffle_id,
-        created_by: user,
+        name: name,
+        last_name: last_name,
+        cell: cell,
+        observations: observations,
+        user: user,
       }),
     });
     const dataJson = await response.json();
@@ -27,4 +29,4 @@ async function prizeAdd(product, raffle_id, user) {
   }
 }
 
-export {prizeAdd};
+export {clientNew};
