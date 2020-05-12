@@ -13,17 +13,13 @@ import {Input} from 'react-native-elements';
 import {ticketAdd} from '../api_functions/ticketAdd';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-class RifaAdd extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default function RifaAdd() {
+  const [raffle_id, setRaffle_id] = useState(0);
+  const [client_id, setClientId] = useState(0);
+  const {id} = route.params;
+  const {nombre} = route.params;
 
-  state = {
-    raffle_id: '',
-    client_id: '',
-    user_id: 1,
-  };
-  handleClick = () => {
+  function handleClick() {
     if (this.state.raffle_id == '') {
       alert('debe llenar la rifa...');
     } else {
@@ -36,42 +32,40 @@ class RifaAdd extends Component {
       });
       alert('Rifa registrada');
     }
-  };
-  render(props) {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView contentInsetAdjustmentBehavior="automatic">
-            <View>
-              <Text style={styles.marginText}>Id de la rifa</Text>
-              <Input
-                placeholder="Rifa"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({raffle_id: text})}
-              />
-              <Text style={styles.marginText}>Cliente</Text>
-              <Input
-                placeholder="Cliente"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({client_id: text})}
-              />
-
-              <Button
-                onPress={this.handleClick}
-                buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
-                icon={<Icon name="send-o" size={15} color="white" />}
-                title="Registrar"
-              />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </>
-    );
   }
+
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <View>
+            <Text style={styles.marginText}>Id de la rifa</Text>
+            <Input
+              placeholder="Rifa"
+              leftIcon={{type: 'font-awesome', name: 'pencil'}}
+              onChangeText={text => this.setState({raffle_id: text})}
+            />
+            <Text style={styles.marginText}>Cliente</Text>
+            <Input
+              placeholder="Cliente"
+              leftIcon={{type: 'font-awesome', name: 'pencil'}}
+              onChangeText={text => this.setState({client_id: text})}
+            />
+
+            <Button
+              onPress={this.handleClick}
+              buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
+              icon={<Icon name="send-o" size={15} color="white" />}
+              title="Registrar"
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
 }
 
-export default RifaAdd;
 const styles = StyleSheet.create({
   marginButon: {
     margin: 10,

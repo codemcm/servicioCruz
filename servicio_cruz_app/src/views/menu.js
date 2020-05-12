@@ -35,7 +35,7 @@ export default function Menu({navigation}) {
           />
           <Button
             title="Sorteos"
-            onPress={() => navigation.navigate('Rifa')}
+            onPress={() => navigation.navigate('RifaList')}
             icon={
               <IconMI
                 name="event-available"

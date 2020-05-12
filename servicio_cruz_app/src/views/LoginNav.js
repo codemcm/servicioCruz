@@ -8,7 +8,9 @@ import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 import Login from './Login';
 import Menu from './menu';
+
 import RifaAdd from './RifaAdd';
+import RaffleList from './raffleList';
 import ClientAdd from './clientAdd';
 import ClientList from './clientList';
 import PrizeAdd from './PrizeAdd';
@@ -92,7 +94,13 @@ export default function App() {
           name="Login"
           component={Login}
         />
-        <Stack.Screen name="Premio" component={PrizeAdd} />
+        <Stack.Screen
+          name="PremioAdd"
+          component={PrizeAdd}
+          options={{
+            title: 'Nuevo premio',
+          }}
+        />
         <Stack.Screen name="TicketAdd" component={TicketAdd} />
         <Stack.Screen
           name="My app"
@@ -132,7 +140,8 @@ export default function App() {
           }}
           component={ClientList}
         />
-        <Stack.Screen name="Rifa" component={RifaAdd} />
+        <Stack.Screen name="RifaAdd" component={RifaAdd} />
+        <Stack.Screen name="RifaList" component={RaffleList} />
       </Stack.Navigator>
     </NavigationContainer>
   );

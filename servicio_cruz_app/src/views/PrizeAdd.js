@@ -1,75 +1,88 @@
 import React from 'react';
-import {Component} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
   View,
-  StatusBar,
+  FlatList,
+  Text,
+  ScrollView,
   StyleSheet,
+  Picker,
 } from 'react-native';
-
-import {Button} from 'react-native-elements';
+import {useState} from 'react';
 import {Input} from 'react-native-elements';
-import {prizeAdd} from '../api_functions/PrizeAdd';
-import {Text} from 'react-native-elements';
+import {Button} from 'react-native-elements';
+import {PricingCard} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-class PrizeAdd extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  state = {
-    product: '',
-    raffleId: '',
-    user: 1,
-  };
-  handleClick = () => {
-    if (this.state.product == '') {
-      alert('debe llenar el nombre');
+export default function Ticket({route, navigation}) {
+  var [clients, setClients] = useState({cliente_1: 4, name: 'bu'});
+  const [selectedValue, setSelectedValue] = useState('java');
+  const {id} = route.params;
+  const {nombre} = route.params;
+  function handleClick() {
+    if (id == '') {
+      alert('debe llenar la rifa...');
     } else {
-      prizeAdd(this.state.product, this.state.raffleId, this.state.user).then(
-        function(response) {
-          console.log('resultado: ' + response);
-        },
-      );
+      ticketAdd(
+        1, //rifa
+        id, //cliente
+        1, //user
+      ).then(function(response) {
+        console.log('resultado: ' + response);
+      });
       alert('Rifa registrada');
     }
-  };
-  render(props) {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView contentInsetAdjustmentBehavior="automatic">
-            <View>
-              <Text style={styles.marginText}>Nombre del premio</Text>
-              <Input
-                placeholder="Nombre del premio"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({product: text})}
-              />
-              <Text style={styles.marginText}>Rifa</Text>
-              <Input
-                placeholder="Rifa"
-                leftIcon={{type: 'font-awesome', name: 'pencil'}}
-                onChangeText={text => this.setState({raffleId: text})}
-              />
-
-              <Button
-                onPress={this.handleClick}
-                buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
-                icon={<Icon name="send-o" size={15} color="white" />}
-                title="Registrar"
-              />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </>
-    );
+    console.log('do something...');
+    alert('boleto...');
   }
-}
 
-export default PrizeAdd;
+  return (
+    <ScrollView>
+      <View>
+        <Text> id: {id}</Text>
+        <Text> nombre: {nombre}</Text>
+        <PricingCard
+          color="#4f9deb"
+          title={nombre}
+          price="Boleto"
+          info={['Rifa de prueba', 'Vigencia: Mayo']}
+          button={{title: 'Registrar', icon: 'flight-takeoff'}}
+        />
+        <View>
+          <Text> REGISTRO DE PREMIO!!</Text>
+          <Text style={styles.marginText}>Id de la rifa</Text>
+          <Input
+            placeholder="Rifa"
+            leftIcon={{type: 'font-awesome', name: 'pencil'}}
+            value={String(clients.cliente_1)}
+            onChangeText={text => this.setState({raffle_id: text})}
+          />
+          <Text style={styles.marginText}>Cliente</Text>
+          <Input
+            placeholder="Cliente"
+            value={clients.name}
+            leftIcon={{type: 'font-awesome', name: 'pencil'}}
+            onChangeText={text => this.setState({client_id: text})}
+          />
+          <Picker
+            selectedValue={selectedValue}
+            style={{height: 50, width: 150}}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedValue(itemValue)
+            }>
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
+          <Button
+            onPress={() => handleClick()}
+            buttonStyle={{margin: 10, backgroundColor: '#EBD22F'}}
+            icon={<Icon name="send-o" size={15} color="white" />}
+            title="Registrar"
+          />
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
 const styles = StyleSheet.create({
   marginButon: {
     margin: 10,
