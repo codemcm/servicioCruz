@@ -112,7 +112,7 @@ export default function NavigationApp() {
             headerLeft: null,
           }}
         />
-        <Stack.Screen name="Boleto" component={Ticket} />
+        <Stack.Screen name="Boleto" component={TicketAdd} />
       </Stack.Navigator>
     </NavigationContainer>
   );
