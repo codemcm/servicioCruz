@@ -36,7 +36,7 @@ export default function App({navigation}) {
       <View>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('Boleto', {
+            navigation.navigate('TicketAdd', {
               id: objClient.client_id,
               nombre: objClient.name,
             })
@@ -67,7 +67,7 @@ export default function App({navigation}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Cliente')}
+        onPress={() => navigation.navigate('ClientNew')}
         underlayColor="white">
         <View style={styles.item}>
           <IconE

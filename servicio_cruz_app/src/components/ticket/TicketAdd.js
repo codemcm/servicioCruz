@@ -13,7 +13,7 @@ import {Button} from 'react-native-elements';
 import {PricingCard} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Ticket({route, navigation}) {
+export default function TicketAdd({route, navigation}) {
   var [clients, setClients] = useState({cliente_1: 4, name: 'bu'});
   const [selectedValue, setSelectedValue] = useState('java');
   const {id} = route.params;

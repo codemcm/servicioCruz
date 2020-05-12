@@ -12,8 +12,7 @@ import ClientAdd from './client/clientAdd';
 import ClientList from './client/clientList';
 import DrawAdd from './draw/DrawAdd';
 import DrawList from './draw/DrawList';
-import Ticket from './ticket/TicketAdd';
-import TicketAdd from './TicketAdd';
+import TicketAdd from './ticket/TicketAdd';
 import PrizeAdd from './prize/PrizeAdd';
 
 function DummyView() {
@@ -65,7 +64,7 @@ export default function NavigationApp() {
           component={Login}
         />
         <Stack.Screen
-          name="PremioAdd"
+          name="PrizeAdd"
           component={PrizeAdd}
           options={{
             title: 'Nuevo premio',
@@ -73,7 +72,7 @@ export default function NavigationApp() {
         />
 
         <Stack.Screen
-          name="Cliente"
+          name="ClientNew"
           options={{
             title: 'Cliente nuevo',
             headerStyle: {

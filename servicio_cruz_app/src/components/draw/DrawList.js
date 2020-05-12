@@ -36,7 +36,7 @@ export default function App({navigation}) {
       <View>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('PremioAdd', {
+            navigation.navigate('PrizeAdd', {
               id: objClient.raffle_id,
             })
           }
@@ -66,7 +66,7 @@ export default function App({navigation}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('RifaAdd')}
+        onPress={() => navigation.navigate('DrawAdd')}
         underlayColor="white">
         <View style={styles.item}>
           <IconE
